@@ -3,7 +3,7 @@
         .module('Meds', [
             'ngRoute',
             'ngResource',
-            'homeSearch'
+            'Meds.homeSearch'
         ])
         .config(config)
         .run(run);

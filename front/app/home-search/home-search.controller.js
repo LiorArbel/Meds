@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('homeSearch')
+        .module('Meds.homeSearch')
         .controller('HomeSearchCtrl', HomeSearchCtrl);
 
     HomeSearchCtrl.$inject = [];

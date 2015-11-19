@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('homeSearch', [])
+        .module('Meds.homeSearch', [])
         .config(config);
 
     config.$inject = ['$routeProvider'];
