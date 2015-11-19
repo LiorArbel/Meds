@@ -37,7 +37,7 @@
         };
 
         vm.selectedItemChange = function (med) {
-            $location.path('/med/' + med._id);
+            $location.path('/med/' + med.name);
         };
 
         function query(item){

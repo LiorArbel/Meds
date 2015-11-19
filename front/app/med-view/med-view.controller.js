@@ -8,9 +8,9 @@
 
         Medicine.getMedicinesByMaterial($routeParams.med)
             .then(function(res){
-                vm.medicines = res.data.medicines;
+                vm.medicines = res.data;
             },function(){
-                    notie.alert(3, 'Wat crap', 3);
+                notie.alert(3, 'Wat crap', 3);
             });
     }
 })();
