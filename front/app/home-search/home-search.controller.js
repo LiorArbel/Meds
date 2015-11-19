@@ -17,8 +17,8 @@
 
         vm.bla = [];
 
-        var deferred = $q.defer;
-        vm.meds = deferred;
+        var deferred = $q.defer();
+        vm.meds = deferred.promise;
 
         $http.get('http://172.16.1.247:3000/meds').then(function (res) {
             deferred.resolve(res.data);
