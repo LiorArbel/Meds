@@ -1,0 +1,33 @@
+.home-container {
+    align-self: center;
+    flex: 1;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-type-container {
+    margin-left: 15px;
+}
+
+.search-type-container md-select-value {
+    color: #D5E7F9 !important;
+}
+
+.search-type-container label {
+    color: #83BEF9 !important;
+}
+
+.logo-container {
+    display: flex;
+    justify-content:center;
+    font-size: 4em;
+    font-weight: bold;
+    color: #D5E7F9;
+}

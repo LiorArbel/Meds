@@ -1,0 +1,29 @@
+<div class="home-container">
+    <div class="logo-container">
+        Meds
+        <!--<i class="material-icons">face</i>-->
+    </div>
+    <div class="search-container">
+        <md-input-container class="search-type-container">
+            <label>חפש על פי</label>
+            <md-select ng-model="vm.searchType">
+                <md-option ng-repeat="type in vm.searchTypes" value="{{type.value}}">
+                    {{type.text}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-autocomplete
+                placeholder ="חפש"
+                md-selected-item = "vm.selectedMed"
+                md-items="med in vm.doSearch(vm.searchText)"
+                md-item-text="med.hebName"
+                md-search-text="vm.searchText"
+                md-min-length="0"
+                md-no-cache="true"
+                md-selected-item-change="vm.selectedItemChange(med)"
+        >
+            <!--ng-style="{'display' : med.hebName.indexOf(vm.searchText) >= 0 ? 'inherit' : 'none'}"-->
+            <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{med.hebName}}</span>
+        </md-autocomplete>
+    </div>
+</div>
