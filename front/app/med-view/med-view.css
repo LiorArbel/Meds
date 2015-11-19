@@ -1,0 +1,13 @@
+.medicine-list {
+
+}
+
+.medicine {
+    background: white;
+    width: 200px;
+    height: 150px;
+    margin: 15px;
+    -webkit-box-shadow: 6px 6px 6px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 6px -5px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 6px -5px rgba(0,0,0,0.75);
+}
