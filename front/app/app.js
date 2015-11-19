@@ -3,6 +3,9 @@
         .module('Meds', [
             'ngRoute',
             'ngResource',
+            'ngAria',
+            'ngAnimate',
+            'ngMaterial',
             'Meds.homeSearch'
         ])
         .config(config)

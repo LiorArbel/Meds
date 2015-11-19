@@ -1,1 +1,24 @@
-blaaaaa
+<div class="home-container">
+    <div class="logo-container">
+        Meds
+    </div>
+    <div class="search-container">
+        <md-input-container class="search-type-container">
+            <label>חפש על פי</label>
+            <md-select ng-model="vm.searchType">
+                <md-option ng-repeat="type in vm.searchTypes" value="{{type.value}}">
+                    {{type.text}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-autocomplete
+                placeholder ="חפש"
+                md-selected-item = "vm.selectedMed"
+                md-items="med in vm.meds"
+                md-item-text="med.name"
+                md-search-text="vm.searchText"
+        >
+            <span md-highlight-text="vm.searchText">{{med.name}}</span>
+        </md-autocomplete>
+    </div>
+</div>
