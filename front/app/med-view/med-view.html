@@ -1,3 +1,9 @@
-<div class="medicines" ng-repeat="medicine in vm.medicines">
-    <medicine medicine="medicine"></medicine>
+<div class="filter">
+
+</div>
+
+<div class="container">
+    <span ng-repeat="medicine in vm.medicines | orderBy:'price'">
+        <medicine medicine="medicine"></medicine>
+    </span>
 </div>
