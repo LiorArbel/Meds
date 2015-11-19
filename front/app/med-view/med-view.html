@@ -1,0 +1,9 @@
+<div class="filter">
+
+</div>
+
+<div class="container">
+    <span ng-repeat="medicine in vm.medicines | orderBy:'price'">
+        <medicine medicine="medicine"></medicine>
+    </span>
+</div>
