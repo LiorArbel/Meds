@@ -6,7 +6,8 @@
             'ngAria',
             'ngAnimate',
             'ngMaterial',
-            'Meds.homeSearch'
+            'Meds.homeSearch',
+            'Meds.medView'
         ])
         .config(config)
         .run(run);
