@@ -7,12 +7,12 @@
         }}
 
 
-        <div class="med-price-per-unit">
-                        מחיר ליחידה
-                        {{vm.medicine.pricePerUnit.toFixed(2) ? vm.medicine.pricePerUnit.toFixed(2) + '₪' : ''}}
+        <div class="med-price-per-unit" ng-show="vm.medicines">
+מחיר ליחידה:
+                        {{vm.medicine.pricePerUnit.toFixed(2) ? vm.medicine.pricePerUnit.toFixed(2) + '₪' : 'מחיר לא מתועד'}}
                     </div>
-                    <div class="med-packet-price">
-                        מחיר לחבילה
+                    <div class="med-packet-price" ng-show="vm.medicines">
+מחיר לחבילה:
                     {{
                     vm.medicine.price ?
                     vm.medicine.price + '₪'
