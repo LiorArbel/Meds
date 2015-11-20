@@ -82,3 +82,14 @@
     justify-content: center;
     padding-bottom: 4px;
 }
+
+.disclaimer {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    z-index: 500;
+    color: #880000;
+    width: 500px;
+}
