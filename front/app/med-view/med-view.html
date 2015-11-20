@@ -7,62 +7,51 @@
         }}
 
 
-        <div class="med-price-per-unit" ng-show="vm.medicines">
-מחיר ליחידה:
-                        {{vm.medicine.pricePerUnit.toFixed(2) ? vm.medicine.pricePerUnit.toFixed(2) + '₪' : 'מחיר לא מתועד'}}
-                    </div>
-                    <div class="med-packet-price" ng-show="vm.medicines">
-מחיר לחבילה:
-                    {{
-                    vm.medicine.price ?
-                    vm.medicine.price + '₪'
-                    :
-                    'מחיר לא מתועד'
-                    }}
-                        </div>
+        <div class="med-packet-price" ng-show="vm.medicines">
+            {{
+            vm.medicine.price ?
+            'מחיר לחבילה:' + vm.medicine.price + '₪'
+            :
+            'מחיר לא מתועד'
+            }}
+        </div>
+        <div class="med-price-per-unit" ng-show="vm.medicines && vm.medicine.price && vm.medicine.pricePerUnit.toFixed(2) != vm.medicine.price">
+            מחיר ליחידה:
+            {{vm.medicine.pricePerUnit.toFixed(2) ? vm.medicine.pricePerUnit.toFixed(2) + '₪' : 'מחיר לא מתועד'}}
+        </div>
     </div>
     <div class="meds-results-container">
         <div ng-if="vm.errMsg" class="error-message">{{vm.errMsg}}</div>
-        <md-whiteframe ng-repeat="medicine in vm.medicines | orderBy:'pricePerUnit'" class="md-whiteframe-4dp med-result" ng-if="medicine._id !== vm.medicine._id">
+        <md-whiteframe ng-repeat="medicine in vm.medicines | orderBy:'pricePerUnit'"
+                       class="md-whiteframe-4dp med-result" ng-if="medicine._id !== vm.medicine._id">
             <div class="med-primary-info">
                 <div class="med-name"><i class="material-icons">assignment</i>{{ medicine.hebName }}</div>
                 <div class="med-price">
                     <div class="med-packet-price">
-                        מחיר לחבילה
-                    {{
-                    medicine.price ?
-                    medicine.price + '₪'
-                    :
-                    'מחיר לא מתועד'
-                    }}
-                        </div>
+                        {{
+                        medicine.price ?
+                        'מחיר לחבילה:' + medicine.price + '₪'
+                        :
+                        'מחיר לא מתועד'
+                        }}
+                    </div>
 
-                    <div class="med-price-per-unit">
+                    <div class="med-price-per-unit" ng-if="medicine.price && medicine.pricePerUnit.toFixed(2) != medicine.price">
                         מחיר ליחידה
                         {{medicine.pricePerUnit.toFixed(2) ? medicine.pricePerUnit.toFixed(2) + '₪' : ''}}
                     </div>
-                    </div>
+                </div>
             </div>
             <div class="divider"></div>
             <div class="med-secondry-info">
                 <div class="central-component">
-מרכיב פעיל מרכזי:
+                    מרכיב פעיל מרכזי:
                     {{ vm.getComponentsString(medicine.components.slice(0, 1)) }}
                 </div>
                 <div ng-if="medicine.components.length > 1" class="secondary-component">
                     מרכיבים נוספים:
                     {{ vm.getComponentsString(medicine.components.slice(1)) }}
                 </div>
-            </div>
-        </md-whiteframe>
-        <md-whiteframe ng-if="false" class="md-whiteframe-4dp med-result">
-            <div class="med-primary-info">
-                <div class="med-name"><i class="material-icons">assignment</i>זין בתחת</div>
-                <div class="med-price">55.4₪</div>
-            </div>
-            <div class="divider"></div>
-            <div class="med-secondry-info">
-                מרכיב פעיל: סקס
             </div>
         </md-whiteframe>
     </div>
