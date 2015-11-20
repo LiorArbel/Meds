@@ -5,23 +5,54 @@
         'תרופות דומות ל'
         + vm.medicine.hebName
         }}
+
+
+        <div class="med-price-per-unit">
+                        מחיר ליחידה
+                        {{vm.medicine.pricePerUnit.toFixed(2) ? vm.medicine.pricePerUnit.toFixed(2) + '₪' : ''}}
+                    </div>
+                    <div class="med-packet-price">
+                        מחיר לחבילה
+                    {{
+                    vm.medicine.price ?
+                    vm.medicine.price + '₪'
+                    :
+                    'מחיר לא מתועד'
+                    }}
+                        </div>
     </div>
     <div class="meds-results-container">
         <div ng-if="vm.errMsg" class="error-message">{{vm.errMsg}}</div>
-        <md-whiteframe ng-repeat="medicine in vm.medicines | orderBy:'price'" class="md-whiteframe-4dp med-result">
+        <md-whiteframe ng-repeat="medicine in vm.medicines | orderBy:'pricePerUnit'" class="md-whiteframe-4dp med-result" ng-if="medicine._id !== vm.medicine._id">
             <div class="med-primary-info">
                 <div class="med-name"><i class="material-icons">assignment</i>{{ medicine.hebName }}</div>
-                <div class="med-price">{{
+                <div class="med-price">
+                    <div class="med-packet-price">
+                        מחיר לחבילה
+                    {{
                     medicine.price ?
                     medicine.price + '₪'
                     :
                     'מחיר לא מתועד'
-                    }}</div>
+                    }}
+                        </div>
+
+                    <div class="med-price-per-unit">
+                        מחיר ליחידה
+                        {{medicine.pricePerUnit.toFixed(2) ? medicine.pricePerUnit.toFixed(2) + '₪' : ''}}
+                    </div>
+                    </div>
             </div>
             <div class="divider"></div>
             <div class="med-secondry-info">
-                מרכיבים פעילים:
-                {{ vm.getComponentsString(medicine.components) }}
+                <div class="central-component">
+מרכיב פעיל מרכזי:
+                    {{ vm.getComponentsString(medicine.components.slice(0, 1)) }}
+                </div>
+                <div ng-if="medicine.components.length > 1" class="secondary-component">
+                    מרכיבים נוספים:
+                    {{ vm.getComponentsString(medicine.components.slice(1)) }}
+                </div>
             </div>
         </md-whiteframe>
         <md-whiteframe ng-if="false" class="md-whiteframe-4dp med-result">

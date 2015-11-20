@@ -41,9 +41,11 @@ md-whiteframe {
 }
 
 .med-price {
-    display: flex;
+
     align-items: center;
 }
+
+
 
 .divider {
     border-top: 1px solid rgba(0,0,0,.08);
@@ -102,4 +104,27 @@ md-whiteframe {
 
 .back-button:focus {
     outline: none;
+}
+
+.med-secondry-info .secondary-component {
+    font-size: 0.9em;
+    color: lightgray;
+}
+
+.med-price {
+    width: 22%;
+}
+.med-price-per-unit {
+    font-size: 0.9em !important;
+}
+
+.med-header .med-price-per-unit {
+    font-size: 0.4em !important;
+}
+.med-header .med-packet-price {
+    font-size: 0.4em !important;
+}
+
+.ur-medicine{
+
 }
