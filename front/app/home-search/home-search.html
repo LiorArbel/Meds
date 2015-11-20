@@ -1,17 +1,17 @@
 <div class="home-container">
     <div class="logo-container">
         Meds
-        <!--<i class="material-icons">face</i>-->
+        <i class="material-icons logo">local_hospital</i>
     </div>
     <div class="search-container">
-        <md-input-container class="search-type-container">
-            <label>חפש על פי</label>
-            <md-select ng-model="vm.searchType">
-                <md-option ng-repeat="type in vm.searchTypes" value="{{type.value}}">
-                    {{type.text}}
-                </md-option>
-            </md-select>
-        </md-input-container>
+        <!--<md-input-container class="search-type-container">-->
+            <!--<label>חפש על פי</label>-->
+            <!--<md-select ng-model="vm.searchType">-->
+                <!--<md-option ng-repeat="type in vm.searchTypes" value="{{type.value}}">-->
+                    <!--{{type.text}}-->
+                <!--</md-option>-->
+            <!--</md-select>-->
+        <!--</md-input-container>-->
         <md-autocomplete
                 placeholder ="חפש"
                 md-selected-item = "vm.selectedMed"
@@ -21,9 +21,21 @@
                 md-min-length="0"
                 md-no-cache="true"
                 md-selected-item-change="vm.selectedItemChange(med)"
+                class="med-search-input"
         >
-            <!--ng-style="{'display' : med.hebName.indexOf(vm.searchText) >= 0 ? 'inherit' : 'none'}"-->
             <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{med.hebName}}</span>
         </md-autocomplete>
+    </div>
+    <div class="top-searches-container">
+        <div class="top-searches-header">
+        חיפושים חמים
+        </div>
+        <div class="divider"></div>
+        <div class="top-searches-items">
+            <div class="top-search-item" ng-repeat="most in vm.mostSearched"><a href="#/med/{{most._id}}">
+                <i class="material-icons">reply</i>
+                {{most.hebName.length < 20 ? most.hebName : most.hebName.substring(0,20) + '...'}}
+            </a></div>
+        </div>
     </div>
 </div>

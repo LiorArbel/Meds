@@ -6,13 +6,12 @@
     Medicine.$inject = ['$http'];
     function Medicine($http) {
         function getMedicinesByMaterial(med) {
-            return $http.get('http://172.16.1.247:3000/meds/' + med + '/_get_by_ingredient');
-
+            return $http.get('http://172.16.2.140:3000/meds/' + med + '/_get_by_components');
         }
 
         function getMedicines() {
 
-           return $http.get('http://172.16.1.247:3000/medicine/');
+           return $http.get('http://172.16.2.140:3000/medicine/');
         }
 
         return {

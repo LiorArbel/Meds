@@ -22,10 +22,14 @@
         var deferred = $q.defer();
         vm.meds = deferred.promise;
 
-        $http.get('http://172.16.1.247:3000/meds').then(function (res) {
+        $http.get('http://172.16.2.140:3000/meds').then(function (res) {
             vm.gotResults = true;
             deferred.resolve(res.data);
             vm.meds = res.data;
+        });
+
+        $http.get('http://172.16.2.140:3000/meds/_most_searched').then(function (res) {
+            vm.mostSearched = res.data;
         });
 
         vm.doSearch = function (text) {

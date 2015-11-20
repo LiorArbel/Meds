@@ -1,9 +1,38 @@
-<div class="filter">
-
-</div>
-
-<div class="container">
-    <span ng-repeat="medicine in vm.medicines | orderBy:'price'">
-        <medicine medicine="medicine"></medicine>
-    </span>
+<div class="meds-info-container">
+    <div class="med-header">
+        <i ng-click="vm.return()" class="material-icons back-button">forward</i>
+        {{
+        'תרופות דומות ל'
+        + vm.medicine.hebName
+        }}
+    </div>
+    <div class="meds-results-container">
+        <div ng-if="vm.errMsg" class="error-message">{{vm.errMsg}}</div>
+        <md-whiteframe ng-repeat="medicine in vm.medicines | orderBy:'price'" class="md-whiteframe-4dp med-result">
+            <div class="med-primary-info">
+                <div class="med-name"><i class="material-icons">assignment</i>{{ medicine.hebName }}</div>
+                <div class="med-price">{{
+                    medicine.price ?
+                    medicine.price + '₪'
+                    :
+                    'מחיר לא מתועד'
+                    }}</div>
+            </div>
+            <div class="divider"></div>
+            <div class="med-secondry-info">
+                מרכיבים פעילים:
+                {{ vm.getComponentsString(medicine.components) }}
+            </div>
+        </md-whiteframe>
+        <md-whiteframe ng-if="false" class="md-whiteframe-4dp med-result">
+            <div class="med-primary-info">
+                <div class="med-name"><i class="material-icons">assignment</i>זין בתחת</div>
+                <div class="med-price">55.4₪</div>
+            </div>
+            <div class="divider"></div>
+            <div class="med-secondry-info">
+                מרכיב פעיל: סקס
+            </div>
+        </md-whiteframe>
+    </div>
 </div>

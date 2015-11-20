@@ -1,20 +1,33 @@
 body {
-    background: rgb(236, 236, 236);
     display: flex;
     direction: rtl;
-    background: rgba(73,155,234,1);
-    background: -moz-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(73,155,234,1)), color-stop(100%, rgba(30,61,94,1)));
-    background: -webkit-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);
-    background: -o-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);
-    background: -ms-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);
-    background: linear-gradient(to bottom, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#1e3d5e', GradientType=0 );
+    background: rgba(12, 71, 130, 0.7)
+    /*background: -moz-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);*/
+    /*background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(73,155,234,1)), color-stop(100%, rgba(30,61,94,1)));*/
+    /*background: -webkit-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);*/
+    /*background: -o-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);*/
+    /*background: -ms-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);*/
+    /*background: linear-gradient(to bottom, rgba(73,155,234,1) 0%, rgba(30,61,94,1) 100%);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#1e3d5e', GradientType=0 );*/
+}
+
+body::after {
+    content: "";
+    background: url('img/geometry.png');
+    opacity: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 div[ng-view]{
     width: 100%;
     display: flex;
+    height: 100%;
+    justify-content: center;
 }
 
 html {
